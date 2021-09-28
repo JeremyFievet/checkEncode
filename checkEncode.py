@@ -46,11 +46,10 @@ def get_file_encoding_chardet(file_path):
         return result['encoding']
 
 
-def search_file():
+def search_file(file_path):
         # All files ending with .txt
-    file = (glob.glob('C:\\Users\\20100907\\Documents\\project\\diamant-backoffice\\home2\\**\*.*', recursive=True))    
+    file = (glob.glob(file_path, recursive=True))    
     return file 
-    #C:\Users\20100907\Documents\project\diamant-backoffice\home2\majmag
     # All files ending with .txt with depth of 2 folder
     #print(glob.glob("/home/adam/*/*.txt")) 
 
@@ -59,7 +58,7 @@ def printDict(value):
    pprint.pprint(value, width=1)
 
 def main():
-    file_path =  search_file()
+    file_path =  search_file("YOUR PATH")
     print("path,Endcoding,Endcoding Chardet")
     for file in file_path: 
        
