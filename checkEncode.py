@@ -4,14 +4,12 @@ import glob
 import sys
 import pprint
 
-
 def get_file_encoding(src_file_path):
     """
     Get the encoding type of a file
     :param src_file_path: file path
     :return: str - file encoding type
     """
-
     with open(src_file_path) as src_file:
         return src_file.encoding
     
@@ -48,9 +46,10 @@ def get_file_encoding_chardet(file_path):
         return result['encoding']
 
 
-def search_file():
+def search_file(file_path):
         # All files ending with .txt
-    return(glob.glob('C:\\Users\\20100907\\Documents\\python\\*.txt')) 
+    file = (glob.glob(file_path, recursive=True))    
+    return file 
     # All files ending with .txt with depth of 2 folder
     #print(glob.glob("/home/adam/*/*.txt")) 
 
@@ -59,12 +58,18 @@ def printDict(value):
    pprint.pprint(value, width=1)
 
 def main():
-    file_path =  search_file()
+    file_path =  search_file("YOUR PATH")
+    print("path,Endcoding,Endcoding Chardet")
     for file in file_path: 
-        print(str(file))
-        printDict(calculate_line_endings(file))
-        print('Endcoding ' + str(get_file_encoding(file)))
-        print('Endcoding with chardet: ' + str(get_file_encoding_chardet(file)))
+       
+       # printDict(calculate_line_endings(file))
+        try:
+            print(str(file)+","+str(get_file_encoding(file))+","+ str(get_file_encoding_chardet(file)))
+           # print('Endcoding ' + str(get_file_encoding(file)))
+            #print('Endcoding with chardet: ' + str(get_file_encoding_chardet(file)))
+        except:
+            pass
+
 
 #search_file("toto")
 main()
