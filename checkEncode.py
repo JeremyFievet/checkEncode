@@ -62,7 +62,7 @@ def main():
 
     print("path,Endcoding,Endcoding Chardet")
     for file in file_path: 
-       
+  
        # printDict(calculate_line_endings(file))
         try:
             print(str(file)+","+str(get_file_encoding(file))+","+ str(get_file_encoding_chardet(file)))
