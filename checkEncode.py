@@ -59,6 +59,7 @@ def printDict(value):
 
 def main():
     file_path =  search_file("YOUR PATH")
+
     print("path,Endcoding,Endcoding Chardet")
     for file in file_path: 
        
