@@ -43,7 +43,7 @@ def get_file_encoding_chardet(file_path):
     with open(file_path, 'rb') as f:
 
         result = chardet.detect(f.read())
-        return result['encoding']
+        return result
 
 
 def search_file(file_path):
@@ -58,19 +58,20 @@ def printDict(value):
    pprint.pprint(value, width=1)
 
 def main():
-    file_path =  search_file("YOUR PATH")
-
-    print("path,Endcoding,Endcoding Chardet")
+    #print(sys.argv[1]);
+    file_path =  search_file(sys.argv[1])
+    print("path,Endcoding,Endcoding Charset","confidence")
     for file in file_path: 
-  
        # printDict(calculate_line_endings(file))
         try:
-            print(str(file)+","+str(get_file_encoding(file))+","+ str(get_file_encoding_chardet(file)))
+            encoding_data = get_file_encoding_chardet(file)
+            encoding = encoding_data['encoding']
+            confidence = encoding_data['confidence']
+            print(str(file)+","+str(get_file_encoding(file))+","+ str(encoding) + ','+ str(confidence))
            # print('Endcoding ' + str(get_file_encoding(file)))
             #print('Endcoding with chardet: ' + str(get_file_encoding_chardet(file)))
         except:
             pass
 
 
-#search_file("toto")
 main()
