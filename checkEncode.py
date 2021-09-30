@@ -57,6 +57,7 @@ def search_file(file_path):
 def printDict(value):
    pprint.pprint(value, width=1)
 
+
 def main():
     #print(sys.argv[1]);
     file_path =  search_file(sys.argv[1])
