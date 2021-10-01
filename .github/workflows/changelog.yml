@@ -1,0 +1,24 @@
+# This is a basic workflow that is manually triggered
+
+name: Changelog
+uses: scottbrenner/generate-changelog-action@master
+id: Changelog
+with:
+  from-tag: v1.0
+  to-tag: HEAD
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: changelog generate
