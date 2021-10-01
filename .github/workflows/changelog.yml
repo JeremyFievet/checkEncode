@@ -22,4 +22,6 @@ jobs:
       with:
         from-tag: v1.0
         to-tag: HEAD
-        run: changelog generate
+        run: |
+          npm i generate-changelog -g 
+          changelog generate
