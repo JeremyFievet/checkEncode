@@ -1,6 +1,6 @@
 # checkEncode
 
-use python .\checkEncode.py 'C:\\your\\path\\**\*.extentionFile' > py.csv
+use python .\checkEncode.py "C:\\your\\path\\**\*.extentionFile" > py.csv
 
 use ** for recursivity
 *.* for any type of file extension
